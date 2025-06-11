@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "redocly preview-docs",
         "stats": "redocly stats",
-        "build": "redocly bundle -o dist/bundle.yaml specs/v1/openapi.yaml",
+        "bundle": "redocly bundle -o dist/bundle.yaml specs/v1/openapi.yaml",
+        "build": "redocly build-docs -o dist/index.html",
         "validate": "redocly lint",
         "preview": "redocly preview --product redoc"
     },
