@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+get:
+  tags: [peptide, distance, single]
+  summary: Compute distance for a single substitution
+  operationId: peptideSingle
+  parameters:
+    - in: path
+      name: metric
+      required: true
+      schema:
+        $ref: '../components/schemas.yaml#/Metric'
+    - in: query
+      name: ref
+      required: true
+      schema: { type: string, maxLength: 1 }
+    - in: query
+      name: alt
+      required: true
+      schema: { type: string, maxLength: 1 }
+  x-codeSamples:
+  - lang: curl
+    label: Curl
+    source: |
+      curl "https://api.example.com/distance/grantham/single?from=A&to=G"
+  - lang: python
+    label: Python Requests
+    source: |
+      import requests
+      r = requests.get("https://api.example.com/distance/grantham/single", params={"from": "A", "to": "G"})
+      print(r.json())
+  responses:
+    '200':
+      $ref: '../components/responses.yaml#/PeptideDistanceResponse'
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+  security: []

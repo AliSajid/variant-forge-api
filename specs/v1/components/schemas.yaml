@@ -1,0 +1,157 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+Metric:
+  type: string
+  enum: [grantham, miyata, epstein, sneath, exchangability, hamming]
+  description: Type of distance metric to use
+
+MismatchValue:
+  type: object
+  properties:
+    dna:
+      type: number
+    peptide:
+      type: number
+  
+DNAFrame:
+  type: object
+  properties:
+    frame:
+      type: string
+      enum: [F1, F2, F3, R1, R2, R3]
+    dna_sequence:
+      type: string
+    translated_sequence:
+      type: string
+    warnings:
+      type: array
+      items:
+        type: string
+
+
+PeptideMismatch:
+  type: object
+  properties:
+    position:
+      type: integer
+    from:
+      type: string
+      maxLength: 1
+    to:
+      type: string
+      maxLength: 1
+    value:
+      $ref: '#/MismatchValue'
+
+DNAMismtach:
+  type: object
+  properties:
+    position:
+      type: integer
+    from:
+      type: string
+      maxLength: 3
+    to:
+      type: string
+      maxLength: 3
+    change:
+      type: object
+      properties:
+        ref:
+          type: string
+          maxLength: 1
+        alt:
+          type: string
+          maxLength: 1
+    value:
+      $ref: '#/MismatchValue'
+
+PeptideDistanceResult:
+  type: object
+  properties:
+    metric:
+      $ref: '#/Metric'
+    reference:
+      type: string
+    alternate:
+      type: string
+    peptide_distance:
+      type: number
+    peptide_mismatches:
+      type: array
+      items:
+        $ref: '#/PeptideMismatch'
+
+DNADistanceResult:
+  type: object
+  properties:
+    metric:
+      $ref: '#/Metric'
+    results:
+      type: array
+      items:
+        type: object
+        properties:
+          frame_ref:
+            $ref: '#/DNAFrame'
+          frame_alt:
+            $ref: '#/DNAFrame'
+          dna_distance:
+            type: number
+          peptide_distance:
+            type: number
+          dna_mismatches:
+            type: array
+            items:
+              $ref: '#/DNAMismtach'
+          peptide_mismatches:
+            type: array
+            items:
+              $ref: '#/PeptideMismatch'
+
+PeptideFastaResult:
+  type: object
+  properties:
+    metric:
+      $ref: '#/Metric'
+    num_input_sequences:
+      type: number
+    results:
+      type: array
+      items:
+        type: object
+        properties:
+          ref_id:
+            type: string
+          alt_id:
+            type: string
+          peptide_distance:
+            type: number
+
+DNAFastaResult:
+  type: object
+  properties:
+    metric:
+      $ref: '#/Metric'
+    ref_id:
+      type: string
+    alt_id:
+      type: string
+    num_input_sequences:
+      type: number
+    results:
+      type: array
+      items:
+        type: object
+        properties:
+          ref_id:
+            type: string
+          alt_id:
+            type: string
+          peptide_distance:
+            type: number
+          dna_distance:
+            type: number

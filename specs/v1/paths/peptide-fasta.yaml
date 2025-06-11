@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+post:
+  tags: [peptide, distance, upload, fasta]
+  summary: Upload FASTA and compute pairwise distances
+  operationId: peptideFasta
+  parameters:
+    - in: path
+      name: metric
+      required: true
+      schema:
+        $ref: '../components/schemas.yaml#/Metric'
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              description: A FASTA file containing sequences
+  responses:
+    '200':
+      $ref: '../components/responses.yaml#/PeptideFastaResponse'
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+  security: []

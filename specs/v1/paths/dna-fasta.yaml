@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+post:
+  tags: [dna, distance, upload, fasta]
+  summary: Submit a FASTA file of DNA sequences to compute ORF distances
+  operationId: dnaFasta
+  parameters:
+    - in: path
+      name: metric
+      required: true
+      schema:
+        $ref: '../components/schemas.yaml#/Metric'
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - file
+          properties:
+            file:
+              type: string
+              format: binary
+              description: FASTA file containing DNA sequences
+  responses:
+    '200':
+      $ref: '../components/responses.yaml#/DNAFastaResponse'
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+  security: []
