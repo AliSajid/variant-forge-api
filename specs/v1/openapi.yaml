@@ -1,0 +1,56 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+openapi: 3.1.0
+
+info:
+  title: Variant Forge API
+  version: 1.0.0
+  license:
+    name: MIT and Apache 2.0
+    identifier: MIT AND Apache-2.0
+  description: |
+    An API to compute amino acid replacement distances using
+    multiple distance metrics
+    (e.g., Grantham, Miyata, Epstein).
+
+    Supports single substitution, short peptide comparisons,
+    long strings, and FASTA file uploads.
+
+servers:
+- url: https://variants.aliimami.com/v1
+  description: Production server
+- url: http://localhost:8080
+  description: Local development server
+
+tags:
+- name: distance
+  description: Distance calculation endpoints
+- name: upload
+  description: File-based FASTA processing
+- name: peptide
+  description: Amino Acid related endpoints
+- name: dna
+  description: Nucleotide related endpoints
+
+paths:
+  /peptide/{metric}/single:
+    $ref: ./paths/peptide-single.yaml
+  /peptide/{metric}/short:
+    $ref: ./paths/peptide-short.yaml
+  /peptide/{metric}/fasta:
+    $ref: ./paths/peptide-fasta.yaml
+  /dna/{metric}/single:
+    $ref: ./paths/dna-single.yaml
+  /dna/{metric}/short:
+    $ref: ./paths/dna-short.yaml
+  /dna/{metric}/fasta:
+    $ref: ./paths/dna-fasta.yaml
+
+components:
+  schemas:
+    $ref: './components/schemas.yaml'
+  responses:
+    $ref: './components/responses.yaml'

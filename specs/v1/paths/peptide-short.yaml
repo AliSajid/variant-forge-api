@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
+get:
+  tags: [peptide, distance, short]
+  summary: Compute total distance for short string replacement
+  operationId: peptideShort
+  parameters:
+    - in: path
+      name: metric
+      required: true
+      schema:
+        $ref: '../components/schemas.yaml#/Metric'
+    - in: query
+      name: ref
+      required: true
+      schema: { type: string, maxLength: 50 }
+    - in: query
+      name: alt
+      required: true
+      schema: { type: string, maxLength: 50 }
+  responses:
+    '200':
+      $ref: '../components/responses.yaml#/PeptideDistanceResponse'
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+  security: []
