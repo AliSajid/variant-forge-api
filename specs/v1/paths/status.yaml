@@ -2,6 +2,7 @@ get:
   tags:
     - meta
   summary: Detailed service status and diagnostics
+  operationId: metaStatus
   responses:
     '200':
       description: Full status report
@@ -30,4 +31,10 @@ get:
               translation_enabled:
                 type: boolean
                 example: true
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
   security: []

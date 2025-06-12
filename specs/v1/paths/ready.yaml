@@ -2,6 +2,7 @@ get:
   tags:
     - meta
   summary: Readiness probe for the service
+  operationId: metaReady
   responses:
     '200':
       description: Service is ready
@@ -20,4 +21,10 @@ get:
                 example:
                   codon_table: ok
                   distance_data: ok
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
   security: []

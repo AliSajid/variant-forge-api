@@ -2,6 +2,7 @@ get:
   tags:
     - meta
   summary: Returns API version and build info
+  operationId: metaVersion
   responses:
     '200':
       description: Version info
@@ -24,4 +25,10 @@ get:
                 format: date-time
                 example: 2025-06-09T12:00:00Z
 
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
   security: []

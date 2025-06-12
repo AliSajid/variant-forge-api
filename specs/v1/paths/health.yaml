@@ -2,6 +2,7 @@ get:
   tags:
     - meta
   summary: Health check for the service
+  operationId: metaHealth
   responses:
     '200':
       description: OK
@@ -13,4 +14,10 @@ get:
               status:
                 type: string
                 example: ok
+    '400':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '422':
+      $ref: '../components/responses.yaml#/ErrorResponse'
+    '500':
+      $ref: '../components/responses.yaml#/ErrorResponse'
   security: []
