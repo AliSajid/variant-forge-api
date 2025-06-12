@@ -48,6 +48,14 @@ paths:
     $ref: ./paths/dna-short.yaml
   /dna/{metric}/fasta:
     $ref: ./paths/dna-fasta.yaml
+  /health:
+    $ref: ./paths/health.yaml
+  /status:
+    $ref: ./paths/status.yaml
+  /version:
+    $ref: ./paths/version.yaml
+  /ready:
+    $ref: ./paths/ready.yaml
 
 components:
   schemas:

@@ -1,0 +1,33 @@
+get:
+  tags:
+    - meta
+  summary: Detailed service status and diagnostics
+  responses:
+    '200':
+      description: Full status report
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uptime:
+                type: string
+                example: 2d 3h 15m
+              memory_usage_mb:
+                type: number
+                format: float
+                example: 45.2
+              distance_metrics_loaded:
+                type: array
+                items:
+                  type: string
+                example: [grantham, miyata, epstein]
+              supported_formats:
+                type: array
+                items:
+                  type: string
+                example: [fasta]
+              translation_enabled:
+                type: boolean
+                example: true
+  security: []

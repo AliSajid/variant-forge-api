@@ -1,0 +1,27 @@
+get:
+  tags:
+    - meta
+  summary: Returns API version and build info
+  responses:
+    '200':
+      description: Version info
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              app_version:
+                type: string
+                example: 1.2.0
+              api_version:
+                type: string
+                example: 1.0.0
+              commit:
+                type: string
+                example: a1b2c3d
+              build_date:
+                type: string
+                format: date-time
+                example: 2025-06-09T12:00:00Z
+
+  security: []

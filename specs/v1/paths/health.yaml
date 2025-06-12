@@ -1,0 +1,16 @@
+get:
+  tags:
+    - meta
+  summary: Health check for the service
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: ok
+  security: []
