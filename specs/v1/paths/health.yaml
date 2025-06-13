@@ -1,10 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
 get:
   tags:
     - meta
   summary: Health check for the service
   operationId: metaHealth
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
@@ -14,10 +19,10 @@ get:
               status:
                 type: string
                 example: ok
-    '400':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '422':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '500':
-      $ref: '../components/responses.yaml#/ErrorResponse'
+    "400":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "422":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "500":
+      $ref: "../components/responses.yaml#/ErrorResponse"
   security: []

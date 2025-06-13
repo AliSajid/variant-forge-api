@@ -1,6 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
 # See https://redocly.com/docs/cli/configuration/ for more information.
 apis:
-  variant-forge-api@v1: 
+  variant-forge-api@v1:
     root: specs/v1/openapi.yaml
 
 theme:
@@ -11,7 +16,7 @@ theme:
         main: "#32329f"
   openapi:
     generateCodeSamples:
-      languages:  # Array of language config objects; indicates in which languages to generate code samples.
+      languages: # Array of language config objects; indicates in which languages to generate code samples.
         - lang: curl
         - lang: Node.js
         - lang: JavaScript
@@ -23,4 +28,3 @@ extends:
 rules:
   no-unused-components: error
   no-server-example.com: off
-

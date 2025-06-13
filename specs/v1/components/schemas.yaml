@@ -15,7 +15,7 @@ MismatchValue:
       type: number
     peptide:
       type: number
-  
+
 DNAFrame:
   type: object
   properties:
@@ -31,7 +31,6 @@ DNAFrame:
       items:
         type: string
 
-
 PeptideMismatch:
   type: object
   properties:
@@ -44,7 +43,7 @@ PeptideMismatch:
       type: string
       maxLength: 1
     value:
-      $ref: '#/MismatchValue'
+      $ref: "#/MismatchValue"
 
 DNAMismtach:
   type: object
@@ -67,13 +66,13 @@ DNAMismtach:
           type: string
           maxLength: 1
     value:
-      $ref: '#/MismatchValue'
+      $ref: "#/MismatchValue"
 
 PeptideDistanceResult:
   type: object
   properties:
     metric:
-      $ref: '#/Metric'
+      $ref: "#/Metric"
     reference:
       type: string
     alternate:
@@ -83,22 +82,22 @@ PeptideDistanceResult:
     peptide_mismatches:
       type: array
       items:
-        $ref: '#/PeptideMismatch'
+        $ref: "#/PeptideMismatch"
 
 DNADistanceResult:
   type: object
   properties:
     metric:
-      $ref: '#/Metric'
+      $ref: "#/Metric"
     results:
       type: array
       items:
         type: object
         properties:
           frame_ref:
-            $ref: '#/DNAFrame'
+            $ref: "#/DNAFrame"
           frame_alt:
-            $ref: '#/DNAFrame'
+            $ref: "#/DNAFrame"
           dna_distance:
             type: number
           peptide_distance:
@@ -106,17 +105,17 @@ DNADistanceResult:
           dna_mismatches:
             type: array
             items:
-              $ref: '#/DNAMismtach'
+              $ref: "#/DNAMismtach"
           peptide_mismatches:
             type: array
             items:
-              $ref: '#/PeptideMismatch'
+              $ref: "#/PeptideMismatch"
 
 PeptideFastaResult:
   type: object
   properties:
     metric:
-      $ref: '#/Metric'
+      $ref: "#/Metric"
     num_input_sequences:
       type: number
     results:
@@ -135,11 +134,7 @@ DNAFastaResult:
   type: object
   properties:
     metric:
-      $ref: '#/Metric'
-    ref_id:
-      type: string
-    alt_id:
-      type: string
+      $ref: "#/Metric"
     num_input_sequences:
       type: number
     results:
@@ -151,7 +146,16 @@ DNAFastaResult:
             type: string
           alt_id:
             type: string
-          peptide_distance:
-            type: number
-          dna_distance:
-            type: number
+          distances:
+            type: array
+            items:
+              type: object
+              properties:
+                ref_frame:
+                  type: string
+                alt_frame:
+                  type: string
+                peptide_distance:
+                  type: number
+                dna_distance:
+                  type: number

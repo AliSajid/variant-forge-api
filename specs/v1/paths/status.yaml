@@ -1,10 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
 get:
   tags:
     - meta
   summary: Detailed service status and diagnostics
   operationId: metaStatus
   responses:
-    '200':
+    "200":
       description: Full status report
       content:
         application/json:
@@ -31,10 +36,10 @@ get:
               translation_enabled:
                 type: boolean
                 example: true
-    '400':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '422':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '500':
-      $ref: '../components/responses.yaml#/ErrorResponse'
+    "400":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "422":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "500":
+      $ref: "../components/responses.yaml#/ErrorResponse"
   security: []

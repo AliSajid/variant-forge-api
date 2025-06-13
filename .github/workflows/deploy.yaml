@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
+
 name: Deploy OpenAPI Docs
 
 on:
@@ -14,8 +19,8 @@ jobs:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'pnpm'
+          node-version: "22"
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm build
       - name: Upload static files as artifact
