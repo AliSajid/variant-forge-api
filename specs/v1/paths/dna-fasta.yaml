@@ -12,7 +12,7 @@ post:
       name: metric
       required: true
       schema:
-        $ref: '../components/schemas.yaml#/Metric'
+        $ref: "../components/schemas.yaml#/Metric"
   requestBody:
     required: true
     content:
@@ -27,10 +27,10 @@ post:
               format: binary
               description: FASTA file containing DNA sequences
   responses:
-    '200':
-      $ref: '../components/responses.yaml#/DNAFastaResponse'
-    '400':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '422':
-      $ref: '../components/responses.yaml#/ErrorResponse'
+    "200":
+      $ref: "../components/responses.yaml#/DNAFastaResponse"
+    "400":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "422":
+      $ref: "../components/responses.yaml#/ErrorResponse"
   security: []

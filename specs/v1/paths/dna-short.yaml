@@ -12,7 +12,7 @@ get:
       name: metric
       required: true
       schema:
-        $ref: '../components/schemas.yaml#/Metric'
+        $ref: "../components/schemas.yaml#/Metric"
     - in: query
       name: ref
       required: true
@@ -22,12 +22,12 @@ get:
       required: true
       schema: { type: string, maxLength: 60 }
   responses:
-    '200':
-      $ref: '../components/responses.yaml#/DNADistanceResponse'
-    '400':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '422':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '500':
-      $ref: '../components/responses.yaml#/ErrorResponse'
+    "200":
+      $ref: "../components/responses.yaml#/DNADistanceResponse"
+    "400":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "422":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "500":
+      $ref: "../components/responses.yaml#/ErrorResponse"
   security: []

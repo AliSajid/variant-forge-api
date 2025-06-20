@@ -8,28 +8,28 @@ PeptideDistanceResponse:
   content:
     application/json:
       schema:
-        $ref: '../components/schemas.yaml#/PeptideDistanceResult'
+        $ref: "../components/schemas.yaml#/PeptideDistanceResult"
 
 DNADistanceResponse:
   description: Calculated pairwise distances between all ORFs of the DNA Sequence
   content:
     application/json:
       schema:
-        $ref: '../components/schemas.yaml#/DNADistanceResult'
+        $ref: "../components/schemas.yaml#/DNADistanceResult"
 
 PeptideFastaResponse:
   description: Pairwise distance results between FASTA sequences
   content:
     application/json:
       schema:
-        $ref: '../components/schemas.yaml#/PeptideFastaResult'
+        $ref: "../components/schemas.yaml#/PeptideFastaResult"
 
 DNAFastaResponse:
   description: Pairwise distance results between FASTA sequences
   content:
     application/json:
       schema:
-        $ref: '../components/schemas.yaml#/DNAFastaResult'
+        $ref: "../components/schemas.yaml#/DNAFastaResult"
 
 ErrorResponse:
   description: An error occurred while processing the request

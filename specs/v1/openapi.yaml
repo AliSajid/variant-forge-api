@@ -20,20 +20,20 @@ info:
     long strings, and FASTA file uploads.
 
 servers:
-- url: https://variants.aliimami.com/v1
-  description: Production server
-- url: http://localhost:8080
-  description: Local development server
+  - url: https://variants.aliimami.com/v1
+    description: Production server
+  - url: http://localhost:8080
+    description: Local development server
 
 tags:
-- name: distance
-  description: Distance calculation endpoints
-- name: upload
-  description: File-based FASTA processing
-- name: peptide
-  description: Amino Acid related endpoints
-- name: dna
-  description: Nucleotide related endpoints
+  - name: distance
+    description: Distance calculation endpoints
+  - name: upload
+    description: File-based FASTA processing
+  - name: peptide
+    description: Amino Acid related endpoints
+  - name: dna
+    description: Nucleotide related endpoints
 
 paths:
   /peptide/{metric}/single:
@@ -59,6 +59,6 @@ paths:
 
 components:
   schemas:
-    $ref: './components/schemas.yaml'
+    $ref: "./components/schemas.yaml"
   responses:
-    $ref: './components/responses.yaml'
+    $ref: "./components/responses.yaml"

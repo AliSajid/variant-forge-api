@@ -15,7 +15,7 @@ repos:
         types:
           - yaml
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.8.2
+    rev: v4.8.3
     hooks:
       - id: commitizen
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -36,10 +36,6 @@ repos:
       - id: mixed-line-ending
         args:
           - --fix=no
-      - id: pretty-format-json
-        args:
-          - --indent=4
-          - --autofix
       - id: trailing-whitespace
         args:
           - --markdown-linebreak-ext=md
@@ -107,18 +103,17 @@ repos:
       - id: forbid-bidi-controls
 
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.27.0
+    rev: v8.27.2
     hooks:
       - id: gitleaks
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v4.0.0-alpha.8"
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: "v3.5.3"
     hooks:
       - id: prettier
-        additional_dependencies:
-          - "prettier@3.3.3"
-          - "prettier-plugin-multiline-arrays@3.0.6"
-        exclude: "^dist/.*$"
+        exclude: "^dist/.*$|^.git/.*$"
+        stages:
+          - pre-commit
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: "v9.28.0" # Use the sha / tag you want to point at
@@ -126,8 +121,10 @@ repos:
       - id: eslint
         files: \.[jt]sx?$
         additional_dependencies:
-          - eslint@9.5.0
-          - eslint-plugin-jest@28.6.0
+          - "eslint@9.28.0"
+          - "@eslint/js@9.28.0"
+        stages:
+          - pre-commit
 
   - repo: https://github.com/fsfe/reuse-tool
     rev: "v5.0.2"
@@ -135,7 +132,6 @@ repos:
       - id: reuse
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 40.36.8
+    rev: 40.54.0
     hooks:
       - id: renovate-config-validator
-        language_version: 20.18.0

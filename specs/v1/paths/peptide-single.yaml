@@ -12,7 +12,7 @@ get:
       name: metric
       required: true
       schema:
-        $ref: '../components/schemas.yaml#/Metric'
+        $ref: "../components/schemas.yaml#/Metric"
     - in: query
       name: ref
       required: true
@@ -22,23 +22,23 @@ get:
       required: true
       schema: { type: string, maxLength: 1 }
   x-codeSamples:
-  - lang: curl
-    label: Curl
-    source: |
-      curl "https://api.example.com/distance/grantham/single?from=A&to=G"
-  - lang: python
-    label: Python Requests
-    source: |
-      import requests
-      r = requests.get("https://api.example.com/distance/grantham/single", params={"from": "A", "to": "G"})
-      print(r.json())
+    - lang: curl
+      label: Curl
+      source: |
+        curl "https://api.example.com/distance/grantham/single?from=A&to=G"
+    - lang: python
+      label: Python Requests
+      source: |
+        import requests
+        r = requests.get("https://api.example.com/distance/grantham/single", params={"from": "A", "to": "G"})
+        print(r.json())
   responses:
-    '200':
-      $ref: '../components/responses.yaml#/PeptideDistanceResponse'
-    '400':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '422':
-      $ref: '../components/responses.yaml#/ErrorResponse'
-    '500':
-      $ref: '../components/responses.yaml#/ErrorResponse'
+    "200":
+      $ref: "../components/responses.yaml#/PeptideDistanceResponse"
+    "400":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "422":
+      $ref: "../components/responses.yaml#/ErrorResponse"
+    "500":
+      $ref: "../components/responses.yaml#/ErrorResponse"
   security: []
